@@ -1,0 +1,6 @@
+# ninja log v5
+15	826	7170759419428313	CMakeFiles/mcCmd-plus.dir/src/tokenizing.cpp.obj	3cb785bf8a296a55
+10	831	7170759419438306	CMakeFiles/mcCmd-plus.dir/src/command.cpp.obj	8284524bd00769d1
+5	836	7170759419503439	CMakeFiles/mcCmd-plus.dir/main.cpp.obj	b844028c844e0dbc
+1	839	7170759419543437	CMakeFiles/mcCmd-plus.dir/api/2913.cpp.obj	8f3952d2900f4b2f
+839	976	7170759420744421	mcCmd-plus.exe	9e98b8815849d869

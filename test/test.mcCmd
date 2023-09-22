@@ -1,0 +1,11 @@
+@ num1[type=int,value=1];
+
+@ /test arg1@int arg2@string #
+    /say "@arg1* @arg2*";
+
+    #
+        /say "s";
+    !#
+!#;
+
+/say "wwwwww\"eeee\"";
