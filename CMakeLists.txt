@@ -6,7 +6,15 @@ cmake_minimum_required (VERSION 3.8)
 project ("mcCmd-plus")
 
 # 이 프로젝트의 실행 파일에 소스를 추가합니다.
-add_executable (mcCmd-plus  "main.cpp" "api/2913.cpp" "api/2913.h" "src/command.cpp" "src/tokenizing.cpp" "src/command.h" "src/tokenizing.h")
+add_executable (mcCmd-plus  
+"main.cpp" 
+"api/2913.cpp" 
+"api/2913.h" 
+"src/command.cpp" 
+"src/tokenizing.cpp" 
+"src/command.h"
+"src/tokenizing.h"
+  "src/dataSystem.cpp" "src/dataSystem.h" "src/implement.cpp" "src/implement.h")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/api/)
 set(

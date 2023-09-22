@@ -1,4 +1,4 @@
-@ num1[type=int,value=1];
+@ num1[type=string,value="¾ß³îÀÚ"];
 
 @ /test arg1@int arg2@string #
     /say "@arg1* @arg2*";

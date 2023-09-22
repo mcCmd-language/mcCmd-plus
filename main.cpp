@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 #include "src/tokenizing.h"
+#include "src/command.h"
+#include "src/implement.h"
 
 using namespace std;
 
@@ -48,5 +50,10 @@ int main(int argc, char** argv) {
 		i++;
 	}
 
-	parseToken(token);
+	vector<Command*> commands = parseToken(token);
+
+	cout << "\n\n------\ncommands: " + to_string(commands.size()) << endl;
+
+	Scope* mainScope = new Scope();
+	Implementing(mainScope, commands);
 }

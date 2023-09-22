@@ -6,6 +6,7 @@
 			[
 				{
 					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.8"
@@ -38,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "mcCmd-plus::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-mcCmd-plus-Debug-5e15398a0ea9d63823d7.json",
+					"jsonFile" : "target-mcCmd-plus-Debug-94645146a0a96d619da6.json",
 					"name" : "mcCmd-plus",
 					"projectIndex" : 0
 				}
@@ -48,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/minyee2913/Desktop/repo/mcCmd-plus/out/build/x64-Debug",
-		"source" : "C:/Users/minyee2913/Desktop/repo/mcCmd-plus"
+		"build" : "C:/Users/leegm/Desktop/project/mcCmd-plus/out/build/x64-Debug",
+		"source" : "C:/Users/leegm/Desktop/project/mcCmd-plus"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 2
+		"minor" : 4
 	}
 }

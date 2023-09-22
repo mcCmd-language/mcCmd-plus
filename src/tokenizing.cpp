@@ -1,7 +1,7 @@
 #include "tokenizing.h"
 
-vector<Command> parseToken(vector<char> token) {
-	vector<Command> parsed;
+vector<Command*> parseToken(vector<char> token) {
+	vector<Command*> parsed;
 
 	bool tokenLogging = true;
 
@@ -76,7 +76,9 @@ vector<Command> parseToken(vector<char> token) {
 
 				ChildToken(cmd, tkSize);
 
-
+				int size = parsed.size();
+				parsed.resize(size + 1);
+				parsed[size] = cmd;
 
 				if (tokenLogging) {
 					cout << "\n////////\n\n";
