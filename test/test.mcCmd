@@ -1,6 +1,9 @@
 @ num1[type=string,value="¾ß³îÀÚ"];
+@ testw[type=func,value=        #
+    /say 1;
+!#];
 
-@ /test arg1@int arg2@string #
+@ /test arg1@int[nullable=true,default=0] arg2@string #
     /say "@arg1* @arg2*";
 
     #

@@ -12,6 +12,8 @@ vector<Command*> parseToken(vector<char> token) {
 	bool cmdParsing = false;
 	int inCodeBlock = false;
 	int parsePoint = 0;
+
+	int setInfo = false;
 	Command* cmd;
 	for (int i = 0; i <= token.size(); i++) {
 		if (i >= token.size() - 1) continue;
@@ -35,7 +37,6 @@ vector<Command*> parseToken(vector<char> token) {
 			if (cmd->type == CommandType::define) {
 				if (i == parsePoint + 2) {
 					if (ch == '/') {
-						cout << "isFunc";
 						cmd->type = CommandType::defineFunction;
 					}
 					else if (ch != ' ') {
@@ -48,7 +49,15 @@ vector<Command*> parseToken(vector<char> token) {
 				}
 			}
 			else if (cmd->type == CommandType::defineVariable) {
-				if (ch == ';') {
+
+				if (ch == '[') {
+					setInfo = true;
+				}
+				if (ch == ']') {
+					setInfo = false;
+				}
+
+				if (ch == ';' && !setInfo) {
 					endToken = true;
 				}
 			}
@@ -61,7 +70,14 @@ vector<Command*> parseToken(vector<char> token) {
 					inCodeBlock--;
 				}
 
-				if (!inCodeBlock) {
+				if (ch == '[') {
+					setInfo = true;
+				}
+				if (ch == ']') {
+					setInfo = false;
+				}
+
+				if (!inCodeBlock && !setInfo) {
 					if (ch == ';') {
 						endToken = true;
 					}
@@ -102,6 +118,8 @@ void ChildToken(Command* cmd, int tkSize) {
 
 	bool string_ = false;
 	int codeBlock = 0;
+	bool inInfo = false;
+
 	for (int j = 0; j < tkSize; j++) {
 		char ch = cmd->fullToken[j];
 
@@ -113,6 +131,15 @@ void ChildToken(Command* cmd, int tkSize) {
 		}
 
 		if (tokening) {
+			if (!string_) {
+				if (ch == '[') {
+					inInfo = true;
+				}
+				else if (ch == ']') {
+					inInfo = false;
+				}
+			}
+
 			if (ch == '"' && cmd->fullToken[j - 1] != '\\') {
 				if (string_) {
 					string_ = false;
@@ -131,7 +158,7 @@ void ChildToken(Command* cmd, int tkSize) {
 				codeBlock--;
 			}
 
-			if (!string_ && !codeBlock && (ch == ' ' || ch == ';')) {
+			if (!string_ && !codeBlock && (ch == ' ' || ch == ';') && !inInfo) {
 				tokening = false;
 				string_ = false;
 				codeBlock = 0;

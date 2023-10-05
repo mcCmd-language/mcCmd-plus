@@ -39,7 +39,7 @@ include CMakeFiles\rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:\Users\leegm\Desktop\project\mcCmd-plus\out\build\x64-Debug\
+cmake_ninja_workdir = C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\out\build\x64-Debug\
 # =============================================================================
 # Object build statements for EXECUTABLE target mcCmd-plus
 
@@ -49,49 +49,49 @@ cmake_ninja_workdir = C$:\Users\leegm\Desktop\project\mcCmd-plus\out\build\x64-D
 
 build cmake_object_order_depends_target_mcCmd-plus: phony || CMakeFiles\mcCmd-plus.dir
 
-build CMakeFiles\mcCmd-plus.dir\main.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\leegm\Desktop\project\mcCmd-plus\main.cpp || cmake_object_order_depends_target_mcCmd-plus
+build CMakeFiles\mcCmd-plus.dir\main.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\main.cpp || cmake_object_order_depends_target_mcCmd-plus
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\leegm\Desktop\project\mcCmd-plus\api
+  INCLUDES = -IC:\Users\minyee2913\Desktop\repo\mcCmd-plus\api
   OBJECT_DIR = CMakeFiles\mcCmd-plus.dir
   OBJECT_FILE_DIR = CMakeFiles\mcCmd-plus.dir
   TARGET_COMPILE_PDB = CMakeFiles\mcCmd-plus.dir\
   TARGET_PDB = mcCmd-plus.pdb
 
-build CMakeFiles\mcCmd-plus.dir\api\2913.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\leegm\Desktop\project\mcCmd-plus\api\2913.cpp || cmake_object_order_depends_target_mcCmd-plus
+build CMakeFiles\mcCmd-plus.dir\api\2913.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\api\2913.cpp || cmake_object_order_depends_target_mcCmd-plus
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\leegm\Desktop\project\mcCmd-plus\api
+  INCLUDES = -IC:\Users\minyee2913\Desktop\repo\mcCmd-plus\api
   OBJECT_DIR = CMakeFiles\mcCmd-plus.dir
   OBJECT_FILE_DIR = CMakeFiles\mcCmd-plus.dir\api
   TARGET_COMPILE_PDB = CMakeFiles\mcCmd-plus.dir\
   TARGET_PDB = mcCmd-plus.pdb
 
-build CMakeFiles\mcCmd-plus.dir\src\command.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\leegm\Desktop\project\mcCmd-plus\src\command.cpp || cmake_object_order_depends_target_mcCmd-plus
+build CMakeFiles\mcCmd-plus.dir\src\command.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\src\command.cpp || cmake_object_order_depends_target_mcCmd-plus
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\leegm\Desktop\project\mcCmd-plus\api
+  INCLUDES = -IC:\Users\minyee2913\Desktop\repo\mcCmd-plus\api
   OBJECT_DIR = CMakeFiles\mcCmd-plus.dir
   OBJECT_FILE_DIR = CMakeFiles\mcCmd-plus.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\mcCmd-plus.dir\
   TARGET_PDB = mcCmd-plus.pdb
 
-build CMakeFiles\mcCmd-plus.dir\src\tokenizing.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\leegm\Desktop\project\mcCmd-plus\src\tokenizing.cpp || cmake_object_order_depends_target_mcCmd-plus
+build CMakeFiles\mcCmd-plus.dir\src\tokenizing.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\src\tokenizing.cpp || cmake_object_order_depends_target_mcCmd-plus
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\leegm\Desktop\project\mcCmd-plus\api
+  INCLUDES = -IC:\Users\minyee2913\Desktop\repo\mcCmd-plus\api
   OBJECT_DIR = CMakeFiles\mcCmd-plus.dir
   OBJECT_FILE_DIR = CMakeFiles\mcCmd-plus.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\mcCmd-plus.dir\
   TARGET_PDB = mcCmd-plus.pdb
 
-build CMakeFiles\mcCmd-plus.dir\src\dataSystem.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\leegm\Desktop\project\mcCmd-plus\src\dataSystem.cpp || cmake_object_order_depends_target_mcCmd-plus
+build CMakeFiles\mcCmd-plus.dir\src\dataSystem.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\src\dataSystem.cpp || cmake_object_order_depends_target_mcCmd-plus
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\leegm\Desktop\project\mcCmd-plus\api
+  INCLUDES = -IC:\Users\minyee2913\Desktop\repo\mcCmd-plus\api
   OBJECT_DIR = CMakeFiles\mcCmd-plus.dir
   OBJECT_FILE_DIR = CMakeFiles\mcCmd-plus.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\mcCmd-plus.dir\
   TARGET_PDB = mcCmd-plus.pdb
 
-build CMakeFiles\mcCmd-plus.dir\src\implement.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\leegm\Desktop\project\mcCmd-plus\src\implement.cpp || cmake_object_order_depends_target_mcCmd-plus
+build CMakeFiles\mcCmd-plus.dir\src\implement.cpp.obj: CXX_COMPILER__mcCmd-plus_Debug C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\src\implement.cpp || cmake_object_order_depends_target_mcCmd-plus
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  INCLUDES = -IC:\Users\leegm\Desktop\project\mcCmd-plus\api
+  INCLUDES = -IC:\Users\minyee2913\Desktop\repo\mcCmd-plus\api
   OBJECT_DIR = CMakeFiles\mcCmd-plus.dir
   OBJECT_FILE_DIR = CMakeFiles\mcCmd-plus.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\mcCmd-plus.dir\
@@ -122,7 +122,7 @@ build mcCmd-plus.exe: CXX_EXECUTABLE_LINKER__mcCmd-plus_Debug CMakeFiles\mcCmd-p
 # Utility command for edit_cache
 
 build CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\leegm\Desktop\project\mcCmd-plus\out\build\x64-Debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\minyee2913\Desktop\repo\mcCmd-plus\out\build\x64-Debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -133,7 +133,7 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\leegm\Desktop\project\mcCmd-plus\out\build\x64-Debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\leegm\Desktop\project\mcCmd-plus -BC:\Users\leegm\Desktop\project\mcCmd-plus\out\build\x64-Debug"
+  COMMAND = cmd.exe /C "cd /D C:\Users\minyee2913\Desktop\repo\mcCmd-plus\out\build\x64-Debug && "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\minyee2913\Desktop\repo\mcCmd-plus -BC:\Users\minyee2913\Desktop\repo\mcCmd-plus\out\build\x64-Debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -151,7 +151,7 @@ build mcCmd-plus: phony mcCmd-plus.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/leegm/Desktop/project/mcCmd-plus/out/build/x64-Debug
+# Folder: C:/Users/minyee2913/Desktop/repo/mcCmd-plus/out/build/x64-Debug
 
 build all: phony mcCmd-plus.exe
 
@@ -162,14 +162,14 @@ build all: phony mcCmd-plus.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake C$:\Users\leegm\Desktop\project\mcCmd-plus\CMakeLists.txt CMakeCache.txt CMakeFiles\3.25.1-msvc1\CMakeCCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeCXXCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeRCCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\CMakeLists.txt CMakeCache.txt CMakeFiles\3.25.1-msvc1\CMakeCCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeCXXCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeRCCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake C$:\Users\leegm\Desktop\project\mcCmd-plus\CMakeLists.txt CMakeCache.txt CMakeFiles\3.25.1-msvc1\CMakeCCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeCXXCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeRCCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeSystem.cmake: phony
+build C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake C$:\Program$ Files\Microsoft$ Visual$ Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake C$:\Users\minyee2913\Desktop\repo\mcCmd-plus\CMakeLists.txt CMakeCache.txt CMakeFiles\3.25.1-msvc1\CMakeCCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeCXXCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeRCCompiler.cmake CMakeFiles\3.25.1-msvc1\CMakeSystem.cmake: phony
 
 
 #############################################
