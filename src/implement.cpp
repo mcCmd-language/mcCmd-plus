@@ -154,7 +154,6 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 			int index = 0;
 
 			string name = cmd->elements[1].substr(1);
-			cout << name << endl;
 
 			function = new Func(name, scope);
 
@@ -222,6 +221,9 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 							else if (key == "default") {
 								arg->def = &value;
 							}
+							else if (key == "refer") {
+								arg->reference = true;
+							}
 						}
 					}
 					else {
@@ -275,6 +277,112 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 			function->SetToken(parseToken(token));
 
 			scope->DefineFunction(function);
+		}
+		else if (cmd->type == CommandType::callFunction) {
+			string name = cmd->elements[0];
+
+			name.erase(0, 1);
+			Func* function = scope->FindFunction(name);
+			if (function == NULL) continue;
+
+			vector<Variable*> references;
+
+			function->GetScope()->ClearScope();
+
+			int argIndex = 0;
+			for (int i = 1; i < cmd->elements.size(); i++) {
+				string argOrigin = cmd->elements[i];
+				FuncArg* arg = function->args[argIndex];
+
+				if (arg == NULL) continue;
+
+				function->args[argIndex]->ClearVar();
+
+				Variable* var = NULL;
+
+				if (argOrigin[0] == '@') {
+					argOrigin.erase(0, 1);
+					Variable* realVar = scope->FindVariable(argOrigin);
+					if (realVar != NULL) {
+						if (arg->reference) {
+							realVar->asArg.resize(realVar->asArg.size() + 1);
+							realVar->asArg[realVar->asArg.size() - 1] = arg->GetName();
+
+							var = realVar;
+
+							references.resize(references.size() + 1);
+							references[references.size() - 1] = realVar;
+						}
+						else {
+							var = new Variable(arg->GetName());
+							var->SetType(arg->GetType());
+
+							realVar->Move(var);
+						}
+					}
+				}
+				
+				if (var == NULL) {
+					var = new Variable(arg->GetName());
+					var->SetType(arg->GetType());
+
+					if (arg->GetType() == VariableType::INT) {
+						var->SetInt(atoi(argOrigin.c_str()));
+					}
+					else if (arg->GetType() == VariableType::FLOAT) {
+						var->SetFloat(atof(argOrigin.c_str()));
+					}
+					else if (arg->GetType() == VariableType::DOUBLE) {
+						var->SetDouble(atof(argOrigin.c_str()));
+					}
+					else if (arg->GetType() == VariableType::STRING) {
+						var->SetString(argOrigin);
+					}
+					else if (arg->GetType() == VariableType::BOOLEAN) {
+						if (argOrigin.compare("true") == 0) var->SetBool(true);
+						else var->SetBool(false);
+					}
+					else if (arg->GetType() == VariableType::FUNCTION) {
+						while (isspace(argOrigin[0])) {
+							argOrigin.erase(0, 1);
+						}
+
+						string tokenStr = argOrigin.substr(1, argOrigin.size() - 3);
+						char* token = const_cast<char*>(tokenStr.c_str());
+
+						var->SetFuncToken(token, function->GetScope());
+					}
+
+					function->GetScope()->DefineVariable(var);
+				}
+
+				if (var != NULL && var->IsNull()) {
+					if (arg->nullable) {
+					}
+					else {
+						cout << "Function '" + function->GetName() + "' is not nullable!";
+						throw;
+					}
+				}
+
+
+				if (var != NULL) {
+					arg->SetVar(var);
+				}
+
+				argIndex++;
+			}
+
+			function->Action(function->args);
+			Implementing(function->GetScope(), function->token);
+
+			for (int i = 0; i < references.size(); i++) {
+				Variable* refer = references[i];
+
+				if (refer->asArg.size() > 0) refer->asArg.resize(refer->asArg.size() - 1);
+			}
+
+			function->GetScope()->ClearScope();
 		}
 	}
 }

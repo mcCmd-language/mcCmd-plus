@@ -14,7 +14,7 @@ add_executable (mcCmd-plus
 "src/tokenizing.cpp" 
 "src/command.h"
 "src/tokenizing.h"
-  "src/dataSystem.cpp" "src/dataSystem.h" "src/implement.cpp" "src/implement.h"  )
+  "src/dataSystem.cpp" "src/dataSystem.h" "src/implement.cpp" "src/implement.h"   "src/systemData.cpp" "src/systemData.h")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/api/)
 set(

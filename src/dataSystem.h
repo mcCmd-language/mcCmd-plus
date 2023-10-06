@@ -25,13 +25,13 @@ private:
 	int intVal;
 	float floatVal;
 	double doubleVal;
-	string* stringVal;
+	string stringVal;
 	bool boolVal;
 	char* funcVal;
 
 	bool isNull;
 public:
-
+	vector<string> asArg;
 	Variable(string name_);
 	~Variable();
 
@@ -54,6 +54,7 @@ public:
 	void SetDouble(double dou);
 	void SetBool(bool boolean);
 	void SetFuncToken(char* vl, class Scope* parent);
+	void Move(Variable* var);
 	void SetNull();
 
 	Variable* Copy();
@@ -66,12 +67,15 @@ private:
 
 	Variable* var;
 public:
-	bool nullable;
+	bool nullable = false;
+	bool reference = true;
 	void* def;
 
 	FuncArg(string name_);
+	FuncArg(string name_, enum class VariableType type_);
 
 	void SetType(enum class VariableType type__);
+	enum class VariableType GetType();
 	string GetName();
 	void SetVar(Variable* var_);
 	Variable* GetVar();
@@ -84,10 +88,9 @@ private:
 	string name;
 	class ChildScope* scope;
 
-	vector<Command*> token;
-
-	void (*action)(vector<FuncArg*> arg, class ChildScope* scope);
+	void (*action)(vector<FuncArg*> arg, class ChildScope* scope) = NULL;
 public:
+	vector<Command*> token;
 	vector<FuncArg*> args;
 
 	Func(string name_, class Scope* parent_);
@@ -95,6 +98,8 @@ public:
 	string GetName();
 	void SetToken(vector<Command*> token_);
 	void SetActon(void (*action_)(vector<FuncArg*> arg, class ChildScope* scope));
+	void Action(vector<FuncArg*> arg);
+	class ChildScope* GetScope();
 	void InsertArg(FuncArg* arg);
 
 	void Call();
@@ -105,7 +110,6 @@ private:
 	vector<Command*> commands;
 public:
 	Scope();
-	~Scope();
 
 	vector<Variable*> variables;
 	vector<Func*> functions;

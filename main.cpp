@@ -55,5 +55,7 @@ int main(int argc, char** argv) {
 	cout << "\n\n------\ncommands: " + to_string(commands.size()) << endl;
 
 	Scope* mainScope = new Scope();
+
+	SetSystemFunc(mainScope);
 	Implementing(mainScope, commands);
 }

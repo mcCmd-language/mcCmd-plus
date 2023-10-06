@@ -4,11 +4,7 @@
 !#];
 
 @ /test arg1@int[nullable=true,default=0] arg2@string #
-    /say "@arg1* @arg2*";
-
-    #
-        /say "s";
-    !#
+    /say "wpw";
 !#;
 
-/say "wwwwww\"eeee\"";
+/say "sss";

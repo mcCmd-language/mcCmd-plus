@@ -1,18 +1,13 @@
 #include "dataSystem.h"
 
 Scope::Scope() {
-	ClearScope();
-}
-
-Scope::~Scope() {
-	ClearScope();
 }
 
 Variable* Scope::FindVariable(string name) {
 	Scope* sc = this;
 
 	while (sc) {
-		for (int i = 0; i < sc->variables.size(); i++) {
+		for (int i = 0; i < sc->variables.size() - 1; i++) {
 			Variable* var = sc->variables[i];
 			if (!var) continue;
 
@@ -31,10 +26,14 @@ Func* Scope::FindFunction(string name)
 {
 	Scope* sc = this;
 
-	while (sc) {
+	name.erase(remove_if(name.begin(), name.end(), [](char c) {
+		return isspace(c);
+		}), name.end());
+
+	while (sc != NULL) {
 		for (int i = 0; i < sc->functions.size(); i++) {
 			Func* func = sc->functions[i];
-			if (!func) continue;
+			if (func == NULL) continue;
 
 			if (func->GetName().compare(name) == 0) {
 				return func;
@@ -48,7 +47,7 @@ Func* Scope::FindFunction(string name)
 }
 
 void Scope::DefineVariable(Variable* variable) {
-	int size = variables.size();
+	size_t size = variables.size();
 	variables.resize(size + 1);
 
 	variables[size] = variable;
@@ -56,7 +55,7 @@ void Scope::DefineVariable(Variable* variable) {
 
 void Scope::DefineFunction(Func* function)
 {
-	int size = functions.size();
+	size_t size = functions.size();
 	functions.resize(size + 1);
 
 	functions[size] = function;
@@ -141,7 +140,7 @@ double Variable::GetDouble() {
 }
 
 string Variable::GetString() {
-	return *stringVal;
+	return stringVal;
 }
 
 bool Variable::GetBool() {
@@ -171,7 +170,7 @@ void Variable::SetDouble(double vl) {
 }
 
 void Variable::SetString(string vl) {
-	stringVal = &vl;
+	stringVal = vl;
 
 	isNull = false;
 }
@@ -187,6 +186,16 @@ void Variable::SetFuncToken(char* vl, class Scope* parent) {
 	scope = new ChildScope(parent);
 }
 
+void Variable::Move(Variable* var)
+{
+	var->intVal = intVal;
+	var->floatVal = floatVal;
+	var->doubleVal = doubleVal;
+	var->stringVal = stringVal;
+	var->boolVal = boolVal;
+	var->funcVal = funcVal;
+}
+
 void Variable::SetNull()
 {
 	intVal = NULL;
@@ -194,7 +203,7 @@ void Variable::SetNull()
 	doubleVal = NULL;
 	boolVal = NULL;
 	funcVal = NULL;
-	stringVal = NULL;
+	stringVal = "";
 
 	isNull = true;
 }
@@ -218,9 +227,20 @@ FuncArg::FuncArg(string name_)
 	name = name_;
 }
 
+FuncArg::FuncArg(string name_, VariableType type_)
+{
+	name = name_;
+	type = type_;
+}
+
 void FuncArg::SetType(VariableType type__)
 {
 	type = type__;
+}
+
+VariableType FuncArg::GetType()
+{
+	return type;
 }
 
 string FuncArg::GetName()
@@ -262,6 +282,20 @@ void Func::SetToken(vector<Command*> token_)
 void Func::SetActon(void(*action_)(vector<FuncArg*>arg, ChildScope* scope))
 {
 	action = action_;
+}
+
+void Func::Action(vector<FuncArg*> arg)
+{
+	if (scope == NULL) return;
+
+	if (action != NULL) {
+		action(arg, scope);
+	}
+}
+
+ChildScope* Func::GetScope()
+{
+	return scope;
 }
 
 void Func::InsertArg(FuncArg* arg)
