@@ -1,9 +1,9 @@
 #include "tokenizing.h"
 
-vector<Command*> parseToken(vector<char> token) {
+vector<Command*> parseToken(vector<char> token, int line = 1) {
 	vector<Command*> parsed;
 
-	bool tokenLogging = true;
+	bool tokenLogging = false;
 
 	int parsedSize = 0;
 
@@ -14,22 +14,39 @@ vector<Command*> parseToken(vector<char> token) {
 	int parsePoint = 0;
 
 	int setInfo = false;
+	bool inString = false;
 	Command* cmd;
-	for (int i = 0; i <= token.size(); i++) {
+	for (int i = 0; i < token.size(); i++) {
 		if (i >= token.size() - 1) continue;
 		char ch = token[i];
 		char chN = token[i + 1];
+
+		if (ch == '\n') line++;
+
+		if (ch == '"') {
+			if (i > 0) {
+				if (token[i - 1] != '\\') inString = !inString;
+			} else inString = !inString;
+		}
+
+		if (!inString) {
+			if (ch == '#' && chN == '#') {
+				while (token[i] != '\n') {
+					i++;
+				}
+			}
+		}
 
 		if (!cmdParsing) {
 			if (ch == '@') {
 				cmdParsing = true;
 				parsePoint = i;
-				cmd = new Command(CommandType::define);
+				cmd = new Command(CommandType::define, line);
 			}
 			else if (ch == '/') {
 				cmdParsing = true;
 				parsePoint = i;
-				cmd = new Command(CommandType::callFunction);
+				cmd = new Command(CommandType::callFunction, line);
 			}
 		}
 		else {

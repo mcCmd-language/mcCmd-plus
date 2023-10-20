@@ -1,10 +1,17 @@
-@ num1[type=string,value="야놀자"];
-@ testw[type=func,value=        #
-    /say 1;
-!#];
+@ data[type=string];
 
-@ /test arg1@int[nullable=true,default=0] arg2@string #
-    /say "wpw";
+@ /input #
+	@ data1[type=string];
+	/say "지역 변수를 입력하세요: ";
+	/replaceitem @data1;
+	/say "전역 변수를 입력하세요: ";
+	/replaceitem @data;
 !#;
 
-/say "sss";
+@ /output #
+	/input;
+	/say "전역변수 @data*";
+	/say "지역변수 @data1*";
+!#;
+
+/output;

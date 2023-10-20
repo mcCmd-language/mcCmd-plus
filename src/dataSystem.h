@@ -12,6 +12,7 @@ enum class VariableType {
 	DOUBLE,
 	BOOLEAN,
 	FUNCTION,
+	ANY,
 };
 
 using namespace std;
@@ -31,6 +32,7 @@ private:
 
 	bool isNull;
 public:
+	bool hasType = false;
 	vector<string> asArg;
 	Variable(string name_);
 	~Variable();
@@ -109,6 +111,8 @@ class Scope {
 private:
 	vector<Command*> commands;
 public:
+	string id;
+	Scope* parent = NULL;
 	Scope();
 
 	vector<Variable*> variables;
@@ -128,12 +132,9 @@ public:
 };
 
 class ChildScope : public Scope {
-private:
-	Scope* parent;
 public:
-	ChildScope(Scope* parent);
+	ChildScope(Scope* parent_);
 
 	bool IsChild() override;
-	Scope* GetParent() override;
 };
 

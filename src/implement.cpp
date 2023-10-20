@@ -99,12 +99,24 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 							else if (value.compare("boolean") == 0) var->SetType(VariableType::BOOLEAN);
 							else if (value.compare("func") == 0) var->SetType(VariableType::FUNCTION);
 							else if (value.compare("function") == 0) var->SetType(VariableType::FUNCTION);
+							else {
+								cout << "<Define Error at line " + to_string(cmd->line) + "> '" + value + "' is unknown type." << endl;
+								return;
+							}
+
+							var->hasType = true;
 						}
 						else if (keyType == VariableKey::VALUE) {
+							if (!var->hasType) {
+								cout << "<Define Error at line "  + to_string(cmd->line) + "> Set Variable type first!!" << endl;
+								return;
+							}
+
 							if (value.compare("null") == 0 || value.compare("NULL")) {
 								var->SetNull();
 							}
-							else if (var->GetType() == VariableType::INT) {
+
+							if (var->GetType() == VariableType::INT) {
 								var->SetInt(atoi(value.c_str()));
 							}
 							else if (var->GetType() == VariableType::FLOAT) {
@@ -274,7 +286,7 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 			string tokenStr = last.substr(1, last.size() - 3);
 			vector<char> token(tokenStr.begin(), tokenStr.end());
 
-			function->SetToken(parseToken(token));
+			function->SetToken(parseToken(token, 0));
 
 			scope->DefineFunction(function);
 		}
@@ -284,6 +296,8 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 			name.erase(0, 1);
 			Func* function = scope->FindFunction(name);
 			if (function == NULL) continue;
+
+			function->GetScope()->parent = scope;
 
 			vector<Variable*> references;
 
@@ -301,7 +315,10 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 				Variable* var = NULL;
 
 				if (argOrigin[0] == '@') {
-					argOrigin.erase(0, 1);
+					argOrigin.erase(remove_if(argOrigin.begin(), argOrigin.end(), [](char c) {
+						return (isspace(c) || c == '@' || c == '*' || c == ';');
+						}), argOrigin.end());
+
 					Variable* realVar = scope->FindVariable(argOrigin);
 					if (realVar != NULL) {
 						if (arg->reference) {
@@ -312,12 +329,16 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 
 							references.resize(references.size() + 1);
 							references[references.size() - 1] = realVar;
+
+							arg->SetVar(realVar);
 						}
 						else {
 							var = new Variable(arg->GetName());
 							var->SetType(arg->GetType());
 
 							realVar->Move(var);
+
+							arg->SetVar(var);
 						}
 					}
 				}
@@ -352,22 +373,19 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 
 						var->SetFuncToken(token, function->GetScope());
 					}
+					else if (arg->GetType() == VariableType::ANY) {}
 
 					function->GetScope()->DefineVariable(var);
+					arg->SetVar(var);
 				}
 
 				if (var != NULL && var->IsNull()) {
 					if (arg->nullable) {
 					}
 					else {
-						cout << "Function '" + function->GetName() + "' is not nullable!";
-						throw;
+						cout << "Function '" + function->GetName() + "' is not nullable!" << endl;
+						return;
 					}
-				}
-
-
-				if (var != NULL) {
-					arg->SetVar(var);
 				}
 
 				argIndex++;
@@ -385,4 +403,112 @@ void Implementing(Scope* scope, vector<Command*> commands) {
 			function->GetScope()->ClearScope();
 		}
 	}
+}
+
+string varToString(Variable* var) {
+	if (var->GetType() == VariableType::STRING) return var->GetString();
+	else if (var->GetType() == VariableType::INT) return to_string(var->GetInt());
+	else if (var->GetType() == VariableType::FLOAT) return to_string(var->GetFloat());
+	else if (var->GetType() == VariableType::DOUBLE) return to_string(var->GetDouble());
+	else if (var->GetType() == VariableType::BOOLEAN) {
+		if (var->GetBool()) return "true";
+		else return "false";
+	}
+	else if (var->GetType() == VariableType::FUNCTION) {
+		return "[function]";
+	}
+
+	return "undefined";
+}
+
+string patchString(Scope* scope, string str)
+{
+	bool parseVar = false;
+	int parseIndex = 0;
+	bool inString = false;
+
+	for (int i = 0; i < str.size(); i++) {
+		char ch = str[i];
+
+		if (parseVar) {
+			if (ch == ' ') parseVar = false;
+			else if (ch == '*' || ch == ';') {
+				parseVar = false;
+
+				string varName = str.substr(parseIndex, i - parseIndex);
+				Variable* var = scope->FindVariable(varName);
+
+				if (var != NULL) {
+					str.erase(parseIndex - 1, i - parseIndex + 2);
+					str.insert(parseIndex - 1, varToString(var));
+
+					i -= (i - parseIndex + 2);
+				}
+				else {
+
+					str.erase(parseIndex - 1, i - parseIndex + 2);
+					str.insert(parseIndex - 1, "undefined");
+
+					i -= (i - parseIndex + 2);
+				}
+			}
+		}
+		else {
+			if (ch == '@') {
+				if (i > 0) {
+					if (str[i - 1] != '\\') parseVar = true;
+				}
+				else {
+					parseVar = true;
+				}
+
+				if (parseVar) parseIndex = i + 1;
+			}
+		}
+	}
+
+	if (parseVar) {
+		parseVar = false;
+
+		string varName = str.substr(parseIndex, str.size());
+		Variable* var = scope->FindVariable(varName);
+
+		if (var != NULL) {
+			str.erase(parseIndex - 1, str.size());
+			str.insert(parseIndex - 1, to_string(var->GetInt()));
+		}
+	}
+
+	inString = false;
+	for (int i = 0; i < str.size(); i++) {
+		char ch = str[i];
+
+		if (!inString && ch == ';') {
+			str.erase(i, 1);
+
+			i--;
+		}
+
+		if (ch == '"') {
+			if (i > 0) {
+				if (str[i - 1] != '\\') {
+					str.erase(i, 1);
+
+					i--;
+
+					if (inString) inString = false;
+					else inString = true;
+				}
+			}
+			else {
+				str.erase(i, 1);
+
+				i--;
+
+				if (inString) inString = false;
+				else inString = true;
+			}
+		}
+	}
+	return str;
 }

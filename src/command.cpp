@@ -1,8 +1,9 @@
 #include "command.h"
 #include <iostream>
 
-Command::Command(enum class CommandType type_) {
+Command::Command(enum class CommandType type_, int line_) {
 	type = type_;
+	line = line_;
 	elements.resize(0);
 }
 

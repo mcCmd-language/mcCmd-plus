@@ -50,11 +50,12 @@ int main(int argc, char** argv) {
 		i++;
 	}
 
-	vector<Command*> commands = parseToken(token);
+	vector<Command*> commands = parseToken(token, 1);
 
-	cout << "\n\n------\ncommands: " + to_string(commands.size()) << endl;
+	cout << "\n\n------\ncommands: " + to_string(commands.size()) + "\n------\n" << endl;
 
 	Scope* mainScope = new Scope();
+	mainScope->id = "main";
 
 	SetSystemFunc(mainScope);
 	Implementing(mainScope, commands);

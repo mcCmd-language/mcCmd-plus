@@ -6,17 +6,29 @@ Scope::Scope() {
 Variable* Scope::FindVariable(string name) {
 	Scope* sc = this;
 
-	while (sc) {
-		for (int i = 0; i < sc->variables.size() - 1; i++) {
-			Variable* var = sc->variables[i];
-			if (!var) continue;
+	name.erase(remove_if(name.begin(), name.end(), [](char c) {
+		return (isspace(c) || c == ';' || c == '*');
+		}), name.end());
 
-			if (var->GetName().compare(name) == 0) {
+	int scope = 0;
+	while (sc != NULL) {
+		for (int i = 0; i < sc->variables.size(); i++) {
+			Variable* var = sc->variables[i];
+			if (var == NULL) continue;
+
+			string name2 = var->GetName();
+
+			name2.erase(remove_if(name2.begin(), name2.end(), [](char c) {
+				return isspace(c);
+				}), name2.end());
+
+			if (name2.compare(name) == 0 || find(var->asArg.begin(), var->asArg.end(), name) != var->asArg.end()) {
 				return var;
 			}
 		}
 
 		sc = sc->GetParent();
+		scope++;
 	}
 
 	return NULL;
@@ -27,7 +39,7 @@ Func* Scope::FindFunction(string name)
 	Scope* sc = this;
 
 	name.erase(remove_if(name.begin(), name.end(), [](char c) {
-		return isspace(c);
+		return (isspace(c) || c == '/' || c == ';');
 		}), name.end());
 
 	while (sc != NULL) {
@@ -35,7 +47,13 @@ Func* Scope::FindFunction(string name)
 			Func* func = sc->functions[i];
 			if (func == NULL) continue;
 
-			if (func->GetName().compare(name) == 0) {
+			string name2 = func->GetName();
+
+			name2.erase(remove_if(name2.begin(), name2.end(), [](char c) {
+				return isspace(c);
+				}), name2.end());
+
+			if (name2.compare(name) == 0) {
 				return func;
 			}
 		}
@@ -84,19 +102,16 @@ bool Scope::IsChild() {
 }
 
 Scope* Scope::GetParent() {
-	return NULL;
+	return parent;
 }
 
-ChildScope::ChildScope(Scope* parent_) {
+ChildScope::ChildScope(Scope* parent_)
+{
 	parent = parent_;
 }
 
 bool ChildScope::IsChild() {
 	return true;
-}
-
-Scope* ChildScope::GetParent() {
-	return parent;
 }
 
 Variable::Variable(string name_) {
@@ -267,6 +282,7 @@ Func::Func(string name_, class Scope* parent_)
 {
 	name = name_;
 	scope = new ChildScope(parent_);
+	scope->id = name_;
 }
 
 string Func::GetName()
